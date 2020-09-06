@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+rm -rf ~/.config/kitty/theme.conf
+ln -s ~/.config/kitty/kitty-themes/themes/$1.conf ~/.config/kitty/theme.conf
+
+
