@@ -18,8 +18,8 @@
 
 [colors]
 
-background = #161c2e
-background-alt = #ef6c35
+background = #55161c2e
+background-alt = #55ef6c35
 foreground = #fff
 foreground-alt = #fff
 primary = 
