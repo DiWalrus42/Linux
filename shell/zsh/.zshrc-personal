@@ -1,0 +1,25 @@
+ ### Custom_Settings
+
+(cat ~/.cache/wal/sequences &)
+#cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
+
+
+
+ alias naru='quotes.py'
+ alias changehybrid="optimus-manager --switch hybrid --no-confirm"
+ alias changenvidia="optimus-manager --switch nvidia --no-confirm"
+ alias changeuintel="optimus-manager --switch intel --no-confirm"
+ alias z='filezip.py'
+ alias repo='repo-hub.py -c repo'
+ alias push='repo-hub.py -p'
+ alias mntwin='mount_windows.sh'
+ alias cdwin='cd /run/media/djson/'
+ alias kittychange="change_kitty_theme.sh"
+ alias pwal="wal -i ~/Pictures/wallpapers"
+ export VISUAL=vim;
+ export EDITOR=vim;
+ export PATH=~/Unity/Hub/Editor/2020.1.2f1/Editor:$PATH
+ export PATH=~/.personal-scripts:$PATH
+ export PATH=~/android-studio/bin:$PATH
+ export PATH="$PATH:~/flutter/bin"
