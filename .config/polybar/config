@@ -19,7 +19,7 @@
 [colors]
 
 background = #55161c2e
-background-alt = #55ef6c35
+background-alt = #ef6c35
 foreground = #fff
 foreground-alt = #fff
 primary = 
@@ -61,15 +61,12 @@ font-5 = "FontAwesome:size=13;3"
 
 modules-left = bspwm
 modules-center = 
-modules-right = backlight pulseaudio battery date powermenu
-
-tray-position = 
-tray-padding = 2
+modules-right = network backlight pulseaudio battery date time
 
 override-redirect = true
 enable-ipc = true
 
-wm-restack = bspwm
+wm-restack = i3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -83,7 +80,7 @@ card = intel_backlight
 format = <ramp> <label>
 ramp-foreground = #ff89beba 
 label-foreground = #ff89beba 
-label = %percentage%%
+label = "   %percentage%%"
 
 
 ramp-0 = 
@@ -99,24 +96,23 @@ adapter = AC0
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-label-charging =  %percentage%%
+label-charging =  "   %percentage%%"
 label-charging-foreground = #ffd3a0
 label-charging-background = ${colors.background}
 label-charging-underline = 
 
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%%
-label-discharging-underline = 
+label-discharging = "   %percentage%%"
 label-discharging-foreground = #ffd3a0
 label-discharging-background = ${colors.background}
 
 format-full-prefix = " "
 format-full-prefix-foreground = #ffd3a0
-format-full-underline = 
 format-foreground = #ffd3a0
 format-background = ${colors.background}
 
 ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f00
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
@@ -139,7 +135,7 @@ type = internal/bspwm
 enable-click = true
 enable-scroll = false
 reverse-scroll = false
-pin-workspaces = true
+pin-workspaces = false
 
 ws-icon-0 = 1;1
 ws-icon-1 = 2;2
@@ -158,17 +154,14 @@ format-padding = 2
 label-active = "%{T4}%icon%"
 label-active-foreground = #fff
 label-active-background = ${colors.background-alt}
-label-active-underline= 
 label-active-padding = 3
 
 label-occupied = "%{T4}%icon%"
 label-occupied-background = #202638
-label-occupied-foreground = 
 label-occupied-padding = 3
 
 label-empty = "%{T4}%icon%"
 label-empty-background = #202638
-label-empty-foreground = 
 label-empty-padding = 3
 
 label-urgent = "%{T4}%icon%"
@@ -183,18 +176,30 @@ label-urgent-padding = 3
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %m-%d"
+date = "   %a %d"
 
-time =  %H:%M
-time-alt = %H:%M
+format-prefix = 
+format-prefix-foreground = #ff89beba
 
-format-prefix = 
-format-prefix-foreground = #ffd3c5
-format-underline = 
+label = %date%
+label-foreground = #ff89beba
 
-label = %time% %date%
-label-foreground = #ffd3c5
+#############################################################
+
+[module/network]
+type=internal/network
+interface = wlp2s0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-disconnected = "   Connection:404 "
+label-connected = "   %essid% "
+
+format-connected-foreground = ${colors.background-alt}
+format-connected-background = ${colors.background}
+format-disconnected-foreground = ${colors.background-alt}
+format-disconnected-background = ${colors.background}
 
 #############################################################
 
@@ -204,17 +209,30 @@ type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1b.0.analog-stereo
 
 format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
+label-volume = "   %percentage%%"
 
 ramp-volume-foreground = #ffa3bc7d 
 label-volume-foreground = #ffa3bc7d 
-label-muted = muted
-format-muted-prefix =  
+label-muted = "muted"
 label-muted-foreground = #666
 
 ramp-volume-0 =  
 ramp-volume-1 =  
 ramp-volume-2 =  
+
+#############################################################
+
+[module/time]
+type = internal/date
+interval = 5
+
+time =  "   %H:%M"
+
+format-prefix = 
+format-prefix-foreground = #ffd3a0
+
+label = %time%
+label-foreground = #ffd3a0
 
 #############################################################
 
